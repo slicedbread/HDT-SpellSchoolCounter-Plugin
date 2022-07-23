@@ -7,21 +7,12 @@ using Hearthstone_Deck_Tracker.Hearthstone;
 namespace SpellSchoolCounter
 {
 
-	public enum Location
-    {
-		Player,
-		Opponent
-    }
-
 	public partial class SchoolCountWidget
 	{
-		private Location _location;
 
-		public SchoolCountWidget(Location player = Location.Player)
+		public SchoolCountWidget()
 		{
-			_location = player;
 		    InitializeComponent();
-			//this.PlayerName.Content = _location == Location.Player ? "Macaw Tracker (Player)" : "Macaw Tracker (Opponent)";
 		}
 
 		public void Update(List<Card> cards)
@@ -34,15 +25,8 @@ namespace SpellSchoolCounter
 
 		public void UpdatePosition()
 		{
-			if (_location == Location.Player)
-			{
-				Canvas.SetTop(this, Core.OverlayWindow.Height * 5 / 100);
-				Canvas.SetRight(this, Core.OverlayWindow.Width * 20 / 100);
-			} else
-            {
-				Canvas.SetTop(this, Core.OverlayWindow.Height * 5 / 100);
-				Canvas.SetRight(this, Core.OverlayWindow.Width * 70 / 100);
-			}
+			Canvas.SetTop(this, Core.OverlayWindow.Height * 5 / 100);
+			Canvas.SetRight(this, Core.OverlayWindow.Width * 20 / 100);
 		}
 
 		public void Show()

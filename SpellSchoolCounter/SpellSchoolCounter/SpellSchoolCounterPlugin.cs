@@ -8,7 +8,6 @@ namespace SpellSchoolCounter
     public class SpellSchoolCounterPlugin : IPlugin
     {
         private SchoolCountWidget _playerList;
-        private SchoolCountWidget _opponentList;
 
         public string Author
         {
@@ -41,28 +40,21 @@ namespace SpellSchoolCounter
 
         public void OnLoad()
         {
-            _playerList = new SchoolCountWidget(Location.Player);
-            _opponentList = new SchoolCountWidget(Location.Opponent);
+            _playerList = new SchoolCountWidget();
 			
             Core.OverlayCanvas.Children.Add(_playerList);
-            Core.OverlayCanvas.Children.Add(_opponentList);
 
-            SpellSchoolCounter curvy = new SpellSchoolCounter(_playerList, _opponentList);
-
+            SpellSchoolCounter curvy = new SpellSchoolCounter(_playerList);
 
             GameEvents.OnGameStart.Add(curvy.GameStart);
             GameEvents.OnInMenu.Add(curvy.InMenu);
             GameEvents.OnTurnStart.Add(curvy.TurnStart);
             GameEvents.OnPlayerPlay.Add(curvy.OnPlayerPlay);
-            GameEvents.OnOpponentPlay.Add(curvy.OnOpponentPlay);
-
-
         }
 
         public void OnUnload()
         {
             Core.OverlayCanvas.Children.Remove(_playerList);
-            Core.OverlayCanvas.Children.Remove(_opponentList);
         }
 
         public void OnUpdate()
@@ -71,7 +63,7 @@ namespace SpellSchoolCounter
 
         public Version Version
         {
-            get { return new Version(1,0,0); }
+            get { return new Version(0,1,1); }
         }
     }
 }

@@ -32,8 +32,11 @@
         <WarningLevel>4</WarningLevel>
     </PropertyGroup>
     <ItemGroup>
+        <Reference Include="HearthDb">
+          <HintPath>..\lib\HearthDb.dll</HintPath>
+        </Reference>
         <Reference Include="HearthstoneDeckTracker">
-          <HintPath>..\..\..\..\Users\ian\AppData\Local\HearthstoneDeckTracker\app-1.18.8\HearthstoneDeckTracker.exe</HintPath>
+          <HintPath>..\..\..\Hearthstone-Deck-Tracker\Hearthstone Deck Tracker\bin\x86\Debug\HearthstoneDeckTracker.exe</HintPath>
         </Reference>
         <Reference Include="PresentationCore" />
         <Reference Include="PresentationFramework" />
