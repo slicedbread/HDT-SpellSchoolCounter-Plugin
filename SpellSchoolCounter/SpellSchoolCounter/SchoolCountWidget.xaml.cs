@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics;
 using System.Windows;
 using System.Windows.Controls;
 using Hearthstone_Deck_Tracker.API;
@@ -13,6 +14,7 @@ namespace SpellSchoolCounter
 		public SchoolCountWidget()
 		{
 		    InitializeComponent();
+		    Debug.WriteLine("________________________________________ini component____________________________________________________");
 		}
 
 		public void Update(List<Card> cards)
@@ -20,6 +22,10 @@ namespace SpellSchoolCounter
 			// hide if card list is empty
 			this.Visibility = cards.Count <= 0 ? Visibility.Hidden : Visibility.Visible;
 			this.ItemsSource = cards;
+			Debug.WriteLine("______________________________________________________________________________________________");
+			Debug.WriteLine("_________________________________________Update_____________________________________________________");
+			Debug.WriteLine(cards.Count);
+			Debug.WriteLine("______________________________________________________________________________________________");
 			UpdatePosition();
 		}
 

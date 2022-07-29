@@ -7,7 +7,7 @@ namespace SpellSchoolCounter
 {
     public class SpellSchoolCounterPlugin : IPlugin
     {
-        private SchoolCountWidget _playerList;
+        private SchoolCountWidget2 _widget;
 
         public string Author
         {
@@ -40,11 +40,11 @@ namespace SpellSchoolCounter
 
         public void OnLoad()
         {
-            _playerList = new SchoolCountWidget();
+            _widget = new SchoolCountWidget2();
 			
-            Core.OverlayCanvas.Children.Add(_playerList);
+            Core.OverlayCanvas.Children.Add(_widget);
 
-            SpellSchoolCounter curvy = new SpellSchoolCounter(_playerList);
+            SpellSchoolCounter curvy = new SpellSchoolCounter(_widget);
 
             GameEvents.OnGameStart.Add(curvy.GameStart);
             GameEvents.OnInMenu.Add(curvy.InMenu);
@@ -54,7 +54,7 @@ namespace SpellSchoolCounter
 
         public void OnUnload()
         {
-            Core.OverlayCanvas.Children.Remove(_playerList);
+            Core.OverlayCanvas.Children.Remove(_widget);
         }
 
         public void OnUpdate()
@@ -63,7 +63,7 @@ namespace SpellSchoolCounter
 
         public Version Version
         {
-            get { return new Version(0,1,1); }
+            get { return new Version(0,4,3); }
         }
     }
 }

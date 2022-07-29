@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Diagnostics;
 using HearthDb.Enums;
 using Hearthstone_Deck_Tracker;
@@ -8,14 +9,14 @@ using CoreAPI = Hearthstone_Deck_Tracker.API.Core;
 
 namespace SpellSchoolCounter
 {
-    public class SpellSchoolCounter
+    internal class SpellSchoolCounter
     {
-        private SchoolCountWidget _cardListWidget = null;
+        private SchoolCountWidget2 _cardListWidget = null;
         
         private List<SpellSchool> _schoolsPlayed = new List<SpellSchool>();
-        private List<Card> _playedList = new List<Card>();
+        private ObservableCollection<Card> _playedList = new ObservableCollection<Card>();
 
-        public SpellSchoolCounter(SchoolCountWidget playerList)
+        public SpellSchoolCounter(SchoolCountWidget2 playerList)
         {
 
             _cardListWidget = playerList;
@@ -32,8 +33,11 @@ namespace SpellSchoolCounter
         internal void GameStart()
         {
             _schoolsPlayed = new List<SpellSchool>();
-            _playedList = new List<Card>();
+            _playedList = new ObservableCollection<Card>();
             _cardListWidget.Update(_playedList);
+            Debug.WriteLine("______________________________________________________________________________________________");
+            Debug.WriteLine("__________________________________________game start____________________________________________________");
+            Debug.WriteLine("______________________________________________________________________________________________");
         }
 
         internal void OnPlayerPlay(Card card)
@@ -70,8 +74,10 @@ namespace SpellSchoolCounter
         // Update the card list on player's turn
         internal void TurnStart(ActivePlayer player)
         {
-
             _cardListWidget.Show();
+            Debug.WriteLine("______________________________________________________________________________________________");
+            Debug.WriteLine("__________________________________________turn start____________________________________________________");
+            Debug.WriteLine("______________________________________________________________________________________________");   
         }
 		
     }
