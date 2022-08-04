@@ -8,14 +8,11 @@ using Hearthstone_Deck_Tracker.Hearthstone;
 
 namespace SpellSchoolCounter
 {
-
-    public partial class SchoolCountWidget2
+    public partial class SchoolCountWidget
     {
-
-        public SchoolCountWidget2()
+        public SchoolCountWidget()
         {
             InitializeComponent();
-            Debug.WriteLine("________________________________________ini component____________________________________________________");
         }
 
         public void Update(ObservableCollection<Card> cards)
@@ -23,17 +20,13 @@ namespace SpellSchoolCounter
             // hide if card list is empty
             this.Visibility = cards.Count <= 0 ? Visibility.Hidden : Visibility.Visible;
             this.ItemsSource = cards;
-            Debug.WriteLine("______________________________________________________________________________________________");
-            Debug.WriteLine("_________________________________________Update_____________________________________________________");
-            Debug.WriteLine(cards.Count);
-            Debug.WriteLine("______________________________________________________________________________________________");
             UpdatePosition();
         }
 
-        public void UpdatePosition()
+        private void UpdatePosition()
         {
-            Canvas.SetTop(this, Core.OverlayWindow.Height * 5 / 100);
-            Canvas.SetRight(this, Core.OverlayWindow.Width * 20 / 100);
+            Canvas.SetTop(this, 300);
+            Canvas.SetRight(this, 300);
         }
 
         public void Show()
