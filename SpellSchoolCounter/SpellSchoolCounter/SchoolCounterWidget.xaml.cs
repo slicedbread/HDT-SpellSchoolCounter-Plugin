@@ -17,8 +17,6 @@ namespace SpellSchoolCounter
 
         public void Update(ObservableCollection<Card> cards)
         {
-            // hide if card list is empty
-            this.Visibility = cards.Count <= 0 ? Visibility.Hidden : Visibility.Visible;
             this.ItemsSource = cards;
             UpdatePosition();
         }
