@@ -14,11 +14,6 @@ namespace SpellSchoolCounter
         private List<SpellSchool> _schoolsPlayed = new List<SpellSchool>();
         private ObservableCollection<Card> _playedList = new ObservableCollection<Card>();
 
-        private static readonly List<string> CardNamesThatCareAboutSchools = new List<string>
-        {
-            "Multicaster", "Coral Keeper", "Magister Dawngrasp"
-        };
-
         public SpellSchoolCounter(SchoolCountWidget playerList)
         {
             _cardListWidget = playerList;
@@ -36,7 +31,7 @@ namespace SpellSchoolCounter
         {
             _schoolsPlayed = new List<SpellSchool>();
             _playedList = new ObservableCollection<Card>();
-            _cardListWidget.Hide();
+            _cardListWidget.Show();
             _cardListWidget.Update(_playedList);
         }
 
@@ -54,18 +49,6 @@ namespace SpellSchoolCounter
         internal void InMenu()
         {
             if (Config.Instance.HideInMenu)
-            {
-                _cardListWidget.Hide();
-            }
-        }
-
-        public void PlayerHandMouseOver(Card hoveredCard)
-        {
-            if (CardNamesThatCareAboutSchools.Contains(hoveredCard.Name))
-            {
-                _cardListWidget.Show();
-            }
-            else
             {
                 _cardListWidget.Hide();
             }
