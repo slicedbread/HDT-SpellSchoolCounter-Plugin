@@ -36,7 +36,7 @@
       <HintPath>..\lib\HearthDb.dll</HintPath>
     </Reference>
     <Reference Include="HearthstoneDeckTracker">
-      <HintPath>..\..\..\Hearthstone-Deck-Tracker\Hearthstone Deck Tracker\bin\x86\Debug\HearthstoneDeckTracker.exe</HintPath>
+      <HintPath>..\..\..\..\..\AppData\Local\HearthstoneDeckTracker\app-1.21.0\HearthstoneDeckTracker.exe</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -57,13 +57,13 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="SchoolCounterWidget.xaml">
-		<SubType>Designer</SubType>
-		<Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>copy "$(TargetDir)$(ProjectName).*" "C:\Users\ian\AppData\Roaming\HearthstoneDeckTracker\Plugins"</PostBuildEvent>
+    <PostBuildEvent>copy "$(TargetDir)$(ProjectName).*" "C:\Users\leek\AppData\Roaming\HearthstoneDeckTracker\Plugins\SpellSchoolCounter"</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
          Other similar extension points exist, see Microsoft.Common.targets.

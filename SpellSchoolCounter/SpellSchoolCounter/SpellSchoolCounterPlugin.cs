@@ -46,7 +46,6 @@ namespace SpellSchoolCounter
 
             SpellSchoolCounter counter = new SpellSchoolCounter(_widget);
 
-            GameEvents.OnPlayerHandMouseOver.Add(counter.PlayerHandMouseOver);
             GameEvents.OnGameStart.Add(counter.GameStart);
             GameEvents.OnInMenu.Add(counter.InMenu);
             GameEvents.OnPlayerPlay.Add(counter.OnPlayerPlay);
@@ -63,7 +62,7 @@ namespace SpellSchoolCounter
 
         public Version Version
         {
-            get { return new Version(1,0,0); }
+            get { return new Version(1,0,2); }
         }
     }
 }
