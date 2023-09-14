@@ -16,7 +16,7 @@ namespace SpellSchoolCounter
 
         private static readonly List<string> CardNamesThatCareAboutSchools = new List<string>
         {
-            "Multicaster", "Coral Keeper", "Magister Dawngrasp"
+            "Multicaster", "Coral Keeper", "Magister Dawngrasp", "Sif", "Discovery of Magic", "Inquisitive Creation", "Wisdom of Norgannon", "Elemental Inspiration"
         };
 
         public SpellSchoolCounter(SchoolCountWidget playerList)
